@@ -3,10 +3,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Home = require('./components/home');
 var About = require('./components/about/aboutPage');
-
+var Header = require('./components/common/header');
 
 (function (win){
-	
+
 "use strict";
 
 var App = React.createClass({
@@ -20,6 +20,7 @@ var App = React.createClass({
 
 		return (
 			<div>
+				<Header />
 				<Child />
 				</div>
 			);

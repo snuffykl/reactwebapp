@@ -15,6 +15,7 @@ var config = {
 	path: {
 		html: './src/*.html',
 		js: './src/**/*.js',
+		images: './src/images/*',
 		css: [
   			'node_modules/bootstrap/dist/css/bootstrap.min.css',
 			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
@@ -39,6 +40,15 @@ gulp.task('open', ['connect'], function() {
 		.pipe(open({
 			uri: config.devBaseUrl + ':' + config.port + '/'
 		}));
+});
+
+gulp.task('images', function (){
+	gulp.src(config.path.images)
+		.pipe(gulp.dest(config.path.dist + '/images'))
+		.pipe(connect.reload());
+
+	gulp.src('./src/favicon.ico')
+		.pipe(gulp.dest(config.path.dist));
 });
 
 gulp.task('html', function() {
@@ -74,4 +84,4 @@ gulp.task('watch', function() {
 	gulp.watch(config.path.js, ['js', 'lint']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'open', 'watch']);
