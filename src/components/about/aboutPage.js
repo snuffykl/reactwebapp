@@ -7,7 +7,6 @@ var About = React.createClass({
 		return (
 			<div>
 				<h1>About</h1>
-				<p>
 				Technologies used by this application as following:
 					<ul>
 						<li>React</li>
@@ -16,7 +15,6 @@ var About = React.createClass({
 						<li>Node</li>
 						<li>Gulp</li>
 					</ul>
-				</p>
 			</div>
 			);
 	}
