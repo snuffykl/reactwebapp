@@ -5,10 +5,9 @@ var ReactDOM = require('react-dom');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
-var browserHistory = ReactRouter.browserHistory;
 var routes = require('./routes');
 
-ReactDOM.render(<Router history={browserHistory}>{routes}</Router>, document.getElementById('app'));
+ReactDOM.render(<Router routes={routes} />, document.getElementById('app'));
 
 // ReactDOM.render(<Home />, document.getElementById('app'));
 

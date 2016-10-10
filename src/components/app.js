@@ -11,7 +11,7 @@ var App = React.createClass({
 			<div>
 				<Header />
 				<div className="container-fluid">
-				{this.props.children}
+					{this.props.children}
 				</div>
 			</div>
 			);

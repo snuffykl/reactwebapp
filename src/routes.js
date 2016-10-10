@@ -13,11 +13,11 @@ var Authors = require('./components/authors/authorPage');
 var NotFound = require('./components/notFoundPage');
 
 var routes = (
-<Route name="app" path="/" component={App}>
+<Route path="/" component={App}>
 	<IndexRoute component={Home} />
-	<Route name="authors" path="authors" component={Authors} />
-	<Route name="about" path="about" component={About} />
-	<Route path="*" component={NotFound} />
+	<Route name="authors" path="authors" component={Authors} ></Route>
+	<Route name="about" path="about" component={About} ></Route>
+	<Route path="*" component={NotFound} ></Route>
 </Route>
 );
 
