@@ -11,12 +11,15 @@ var App = require('./components/app');
 var Home = require('./components/home');
 var About = require('./components/about/aboutPage');
 var Authors = require('./components/authors/authorPage');
+var ManageAuthor = require('./components/authors/manageAuthorPage');
 var NotFound = require('./components/notFoundPage');
 
 var routes = (
 <Route path="/" component={App}>
 	<IndexRoute component={Home} />
 	<Route name="authors" path="authors" component={Authors} ></Route>
+	<Route name="author" path="author" component={ManageAuthor}></Route>
+	<Route name="editAuthor" path="author/:id" component={ManageAuthor}></Route>
 	<Route name="about" path="about" component={About} ></Route>
 	<Redirect from="about-us" to="about" />
 	<Route path="*" component={NotFound} ></Route>
