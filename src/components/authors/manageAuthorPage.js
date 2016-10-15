@@ -3,9 +3,9 @@
 var React = require('react');
 var Router = require('react-router');
 var toastr = require('toastr');
-
 var AuthorForm = require('./authorForm');
-var AuthorApi = require('../../api/authorApi');
+var AuthorActions = require('../../actions/authorActions');
+var AuthorStore = require('../../stores/authorStore');
 
 var ManageAuthorPage = React.createClass({
 
@@ -17,7 +17,7 @@ var ManageAuthorPage = React.createClass({
 		var authorId = this.props.params.id; //from path author/:id
 
 		if(authorId){
-			this.setState({author: AuthorApi.getAuthorById(authorId)});
+			this.setState({author: AuthorStore.getAuthorById(authorId)});
 		}
    },
 
@@ -72,7 +72,13 @@ var ManageAuthorPage = React.createClass({
 			return;
 		}
 
-		AuthorApi.saveAuthor(this.state.author);
+		if(this.state.author.id){
+			AuthorActions.updateAuthor(this.state.author);
+		}
+		else {
+			AuthorActions.createAuthor(this.state.author);
+		}
+		
 		this.state.dirty = false; // Directly access object state to set it instead of this.setState({dirty: false}); not working
 		toastr.success('Author saved');
 		this.context.router.push('authors');
